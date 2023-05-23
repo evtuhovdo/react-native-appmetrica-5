@@ -29,9 +29,9 @@ declare type Location = {
   timestamp?: number
 }
 declare type AppMetricaDeviceIdReason =
-  | "UNKNOWN"
-  | "NETWORK"
-  | "INVALID_RESPONSE"
+  | 'UNKNOWN'
+  | 'NETWORK'
+  | 'INVALID_RESPONSE'
 declare const _default: {
   activate(config: AppMetricaConfig): void
   getLibraryApiLevel(): any
@@ -42,7 +42,7 @@ declare const _default: {
   reportEvent(eventName: string, attributes?: object | null): void
   reportReferralUrl(referralUrl: string): void
   requestAppMetricaDeviceID(
-    listener: (deviceId?: string, reason?: AppMetricaDeviceIdReason) => void
+    listener: (deviceId?: string, reason?: AppMetricaDeviceIdReason) => void,
   ): void
   resumeSession(): void
   sendEventsBuffer(): void
@@ -50,12 +50,37 @@ declare const _default: {
   setLocationTracking(enabled: boolean): void
   setStatisticsSending(enabled: boolean): void
   setUserProfileID(userProfileID?: string): void
+
   changeCart(
-    eventName: "addToCart" | "removeFromCart",
+    isCookery: boolean,
+    eventName: 'addToCart' | 'removeFromCart',
     price: number,
     id: string,
     productName: string,
-    // categories: string
+    productCategories: string,
   ): void
-}
-export default _default
+
+  reportProductViewEvent(
+    isCookery: boolean,
+    price: number,
+    id: string,
+    productName: string,
+    productCategories: string,
+  ): void
+
+  reportPurchaseEvent(
+    isCookery: boolean,
+    orderId: string,
+    locationId: string,
+    locationName: string,
+    orderItems: {
+      id: string;
+      amount: number;
+      actualPrice: number;
+      originalPrice: number;
+      productName: string;
+      productCategories: string;
+    }[],
+  ): void
+};
+export default _default;

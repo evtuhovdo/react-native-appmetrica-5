@@ -73,9 +73,53 @@ export default {
     AppMetrica.setUserProfileID(userProfileID);
   },
 
-  // changeCart(eventName, price, id, productName, categories) {
-  changeCart(eventName, price, id, productName) {
-    // AppMetrica.changeCart(eventName, price, id, productName, categories);
-    AppMetrica.changeCart(eventName, price, id, productName);
+  changeCart(
+    isCookery,
+    eventName,
+    price,
+    id,
+    productName,
+    productCategories
+  ) {
+    AppMetrica.changeCart(
+      isCookery,
+      eventName,
+      price,
+      id,
+      productName,
+      productCategories
+    );
+  },
+
+  reportProductViewEvent(
+    isCookery,
+    price,
+    id,
+    productName,
+    productCategories,
+  ) {
+    AppMetrica.reportProductViewEvent(
+      isCookery,
+      price,
+      id,
+      productName,
+      productCategories
+    );
+  },
+
+  reportPurchaseEvent(
+    isCookery,
+    orderId,
+    locationId,
+    locationName,
+    orderItems
+  ) {
+    AppMetrica.reportPurchaseEvent(
+      isCookery,
+      orderId,
+      locationId,
+      locationName,
+      orderItems
+    );
   },
 };
