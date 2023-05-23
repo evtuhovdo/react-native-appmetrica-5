@@ -155,7 +155,7 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
       public void changeCart(String eventName, int price, String id, String productName) {
         // eventName = 'addToCart' | 'removeFromCart'
         // params = [price, id]
-        if (System.getenv().containsKey("APPMETRICA_KEY")) {
+//         if (System.getenv().containsKey("APPMETRICA_KEY")) {
           ECommerceScreen screen = new ECommerceScreen()
                   .setName("ProductCardActivity");
           ECommercePrice originalPrice = new ECommercePrice(new ECommerceAmount(price, "RUB"));
@@ -175,5 +175,5 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
           }
           YandexMetrica.reportECommerce(changeCartEvent);
         }
-      }
+//       }
 }
