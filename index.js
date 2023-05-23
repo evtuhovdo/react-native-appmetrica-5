@@ -73,7 +73,9 @@ export default {
     AppMetrica.setUserProfileID(userProfileID);
   },
 
-  changeCart(eventName, price, id, productName, modificator) {
-    AppMetrica.changeCart(eventName, price, id, productName, modificator);
+  // changeCart(eventName, price, id, productName, categories) {
+  changeCart(eventName, price, id, productName) {
+    // AppMetrica.changeCart(eventName, price, id, productName, categories);
+    AppMetrica.changeCart(eventName, price, id, productName);
   },
 };

@@ -151,7 +151,8 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod(isBlockingSynchronousMethod = true)
-      public void changeCart(String eventName, int price, String id, String productName, String categories) {
+//       public void changeCart(String eventName, int price, String id, String productName, String categories) {
+      public void changeCart(String eventName, int price, String id, String productName) {
         // eventName = 'addToCart' | 'removeFromCart'
         // params = [price, id]
         if (System.getenv().containsKey("APPMETRICA_KEY")) {
@@ -163,8 +164,8 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
           ECommerceProduct product = new ECommerceProduct(id)
                   .setActualPrice(actualPrice)
                   .setOriginalPrice(originalPrice)
-                  .setName(productName)
-                  .setCategoriesPath(Arrays.asList(categories));
+                  .setName(productName);
+//                   .setCategoriesPath(Arrays.asList(categories));
           ECommerceCartItem addedItem = new ECommerceCartItem(product, actualPrice, 1.0);
           ECommerceEvent changeCartEvent;
           if (eventName.equals("addToCart")) {

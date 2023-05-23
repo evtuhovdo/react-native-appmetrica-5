@@ -55,7 +55,7 @@ declare const _default: {
     price: number,
     id: string,
     productName: string,
-    categories: string
+    // categories: string
   ): void
 }
 export default _default
