@@ -26,6 +26,7 @@ import com.yandex.metrica.ecommerce.ECommerceAmount;
 import com.yandex.metrica.ecommerce.ECommerceCartItem;
 import com.yandex.metrica.ecommerce.ECommerceEvent;
 import com.yandex.metrica.ecommerce.ECommercePrice;
+import com.yandex.metrica.ecommerce.ECommerceOrder;
 import com.yandex.metrica.ecommerce.ECommerceProduct;
 import com.yandex.metrica.ecommerce.ECommerceScreen;
 
@@ -255,5 +256,7 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
 
             ECommerceOrder order = new ECommerceOrder(orderId, addedItems)
                 .setPayload(payload);
+             ECommerceEvent purchaseEvent = ECommerceEvent.purchaseEvent(order);
+             YandexMetrica.reportECommerce(purchaseEvent);
         }
 }
