@@ -155,7 +155,7 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
         public void changeCart(
             boolean isCookery,
             String eventName,
-            int price,
+            String price,
             String id,
             String productName,
             int amount,
