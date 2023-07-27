@@ -161,15 +161,16 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
             int amount,
             String productCategories
         ) {
+            double doublePrice = Double.parseDouble(price);
             // eventName = 'addToCart' | 'removeFromCart'
             ECommerceScreen screen = new ECommerceScreen()
                 .setCategoriesPath(Arrays.asList(
                     isCookery ? "Меню кулинарии" : "Меню предзаказа"
                 ))
                 .setName("ProductCardActivity");
-            ECommercePrice originalPrice = new ECommercePrice(new ECommerceAmount(price, "RUB"));
+            ECommercePrice originalPrice = new ECommercePrice(new ECommerceAmount(doublePrice, "RUB"));
             // модификаторы надо в actualPrice
-            ECommercePrice actualPrice = new ECommercePrice(new ECommerceAmount(price, "RUB"));
+            ECommercePrice actualPrice = new ECommercePrice(new ECommerceAmount(doublePrice, "RUB"));
             ECommerceProduct product = new ECommerceProduct(id)
                 .setActualPrice(actualPrice)
                 .setOriginalPrice(originalPrice)
